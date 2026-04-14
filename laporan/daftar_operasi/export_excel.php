@@ -4,8 +4,13 @@ require $documentRoot.'config/connection.config.php';
 require $documentRoot.'config/utility.config.php';
 
 include 'daftar_operasi.php';
+
+$tglAwal = $_GET['tglAwal'] ?? null;
+$tglAkhir = $_GET['tglAkhir'] ?? null;
+$unt = $_GET['unt'] ?? null;
 $q = new DAFTAR_OPERASI();
 $dt = $q->get_data($tglAwal, $tglAkhir, $unt);
+
 
 // panggil library (tanpa composer)
 require $documentRoot.'lib/xlsxwriter.class.php';
