@@ -5,7 +5,7 @@ require $documentRoot.'config/utility.config.php';
 
 include 'daftar_operasi.php';
 $q = new DAFTAR_OPERASI();
-$dt = $q->get_data();
+$dt = $q->get_data($tglAwal, $tglAkhir, $unt);
 
 // panggil library (tanpa composer)
 require $documentRoot.'lib/xlsxwriter.class.php';

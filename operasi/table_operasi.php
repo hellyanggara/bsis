@@ -214,27 +214,27 @@ $(function () {
         "lengthChange": false,
         "autoWidth": false,
         "pageLength": 10,
-        "buttons": [
-            {
-                text: 'Excel',
-                action: function ( e, dt, node, config ) {
-                    window.location = "export_excel.php"
-                }
-            },
-            {
-                extend: "pdf",
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            {
-                extend: "print",
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            "colvis"
-        ]
+        // "buttons": [
+        //     {
+        //         text: 'Excel',
+        //         action: function ( e, dt, node, config ) {
+        //             window.location = "export_excel.php"
+        //         }
+        //     },
+        //     {
+        //         extend: "pdf",
+        //         exportOptions: {
+        //             columns: ':visible'
+        //         }
+        //     },
+        //     {
+        //         extend: "print",
+        //         exportOptions: {
+        //             columns: ':visible'
+        //         }
+        //     },
+        //     "colvis"
+        // ]
     });
     table.buttons().container()
         .appendTo('#tableOperasi_wrapper .col-md-6:eq(0)');

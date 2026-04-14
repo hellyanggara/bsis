@@ -74,7 +74,7 @@ $(function () {
             {
                 text: 'Excel',
                 action: function ( e, dt, node, config ) {
-                    window.location = "export_excel.php"
+                    window.location = "export_excel.php?tglAwal=<?= $tglAwal?>&tglAkhir=<?= $tglAkhir?>&unt=<?= $unt ?>"
                 }
             },
             {
