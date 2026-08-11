@@ -46,6 +46,10 @@ $check = '<i class="fa fa-check text-success"></i>';
             <li>Konsultasi <?= $dataRegistrasi->konsultasi == 1 ? $check : $x ?></li>
         </ul>
     </div>
+    <div class="col-md-4">
+        <label class="mb-0">Disimpan oleh</label>
+        <h6><?= $dataRegistrasi->penginput ?></h6>
+    </div>
     <?php if($dataRegistrasi->status == 2): ?>
     <div class="col-md-12">
         <label class="mb-0">Status Penolakan</label>

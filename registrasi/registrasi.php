@@ -131,6 +131,7 @@ class REGISTRASI
         require $this->documentRoot.'config/utility.config.php'; 
         $sql = "SELECT TOP 1
                 f.*,
+                dp.NamaLengkap as penginput,
 
                 -- Pasien
                 p.NamaLengkap,
@@ -167,6 +168,9 @@ class REGISTRASI
 
             LEFT JOIN Penjamin pj 
                 ON pj.IdPenjamin = pd.IdPenjamin
+                
+            LEFT JOIN DataPegawai dp
+                    ON dp.IdPegawai = f.IdInput
 
             WHERE f.id = :id
             ";
