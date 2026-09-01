@@ -35,7 +35,7 @@ $dt = $q->get_data($unt, $sts, $tglAwal, $tglAkhir);
                 <th class="text-center align-middle">Ruangan</th>
                 <th class="text-center align-middle">Diagnosa</th>
                 <th class="text-center align-middle">Tindakan</th>
-                <th class="text-center align-middle">Operator</th>
+                <th class="text-center align-middle">Dokter</th>
                 <th class="text-center align-middle">Status</th>
             </tr>
         </thead>
@@ -75,8 +75,42 @@ $dt = $q->get_data($unt, $sts, $tglAwal, $tglAkhir);
                     <td class="text-center"><?= htmlspecialchars($row->NamaRuangan) ?></td>
                     <td class="text-center"><?= htmlspecialchars($row->diagnosa) ?></td>
                     <td class="text-center"><?= htmlspecialchars($row->tindakan) ?></td>
-                    <td class="text-center">
-                        <?= $row->id_dokter != null ? $row->dokter_operator : '' ?>
+                    <td>
+                        <?php if ($row->id_dokter != null): ?>
+                            <p>
+                                <b>Operator :</b> <?= $row->dokter_operator ?>
+                            </p>
+                        <?php endif; ?>
+
+                        <?php if ($row->join_op == 1): ?>
+                            <b>Join OP :</b>
+                            <ol>
+                                <?php
+                                $dokterJoin = [
+                                    [
+                                        'id' => $row->id_dokter_join_1,
+                                        'nama' => $row->dokter_join_1
+                                    ],
+                                    [
+                                        'id' => $row->id_dokter_join_2,
+                                        'nama' => $row->dokter_join_2
+                                    ],
+                                    [
+                                        'id' => $row->id_dokter_join_3,
+                                        'nama' => $row->dokter_join_3
+                                    ]
+                                ];
+
+                                foreach ($dokterJoin as $dokter):
+                                    if ($dokter['id'] !== null):
+                                ?>
+                                        <li><?= $dokter['nama'] ?></li>
+                                <?php
+                                    endif;
+                                endforeach;
+                                ?>
+                            </ol>
+                        <?php endif; ?>
                     </td>
                     <td class="text-center">
                         <span class="badge badge-<?= $col ?>"><?= $status ?></span>

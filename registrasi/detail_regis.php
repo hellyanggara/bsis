@@ -50,8 +50,12 @@ $check = '<i class="fa fa-check text-success"></i>';
         <label class="mb-0">Disimpan oleh</label>
         <h6><?= $dataRegistrasi->penginput ?></h6>
     </div>
+    <div class="col-md-4">
+        <label class="mb-0">Tgl Input</label>
+        <h6><?= dayIndonesianConvert($dataRegistrasi->TglInput, true, true) ?></h6>
+    </div>
     <?php if($dataRegistrasi->status == 2): ?>
-    <div class="col-md-12">
+    <div class="col-md-4">
         <label class="mb-0">Status Penolakan</label>
         <h6 class="text-danger"><?= nl2br($dataRegistrasi->alasan) ?></h6>
     </div>

@@ -50,12 +50,18 @@ class REGISTRASI
             getdate()) AS Umur,
             r.NamaRuangan ,
             dp.NamaLengkap as dokter_operator,
-            dp1.NamaLengkap as dokter_anestesi
+            dp1.NamaLengkap as dokter_anestesi, 
+            dp2.NamaLengkap AS dokter_join_1,
+            dp3.NamaLengkap AS dokter_join_2, 
+            dp4.NamaLengkap AS dokter_join_3 
             FROM FormJadwalOperasi f 
             JOIN Pasien p ON p.NoCM = f.NoCM
             JOIN Ruangan r ON r.KdRuangan = f.KdRuangan
             LEFT JOIN DataPegawai dp ON dp.IdPegawai = f.id_dokter
             LEFT JOIN DataPegawai dp1 ON dp1.IdPegawai = f.id_dokter_anestesi
+            LEFT JOIN DataPegawai dp2 ON dp2.IdPegawai = f.id_dokter_join_1 
+            LEFT JOIN DataPegawai dp3 ON dp3.IdPegawai = f.id_dokter_join_2 
+            LEFT JOIN DataPegawai dp4 ON dp4.IdPegawai = f.id_dokter_join_3 
             WHERE 1=1
         ";
 
